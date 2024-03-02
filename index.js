@@ -1,6 +1,6 @@
-const fruits = document.getElementsByClassName("fruit");
-fruits[2].style.background = "yellow";
-for(let i=0;i<fruits.length;i++)
-  {
-    fruits[i].style.fontWeight="bold";
-  }
+const list=document.getElementsByTagName("li");
+list[4].style.color="blue";
+const listitems=document.getElementsByClassName("fruit");
+for(let i=0;i<listitems.length;i++){
+listitems[i].style.fontStyle="italic";
+}
