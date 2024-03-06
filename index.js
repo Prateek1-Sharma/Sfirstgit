@@ -9,16 +9,16 @@ editButton.className="edit-btn";
 li[i].appendChild(editButton);
 }
 // Implement the code as in video but with one extra 'Edit' button in 'li'
-const form =document.querySelector("form");
-form.addEventListener("submit",function(event){
-event.preventDefault();
-const fruitToAdd=document.querySelector("#fruit-to-add");
-const lis=document.createElement("li");
-lis.innerHTML= fruitToAdd.value+'<button class="delete-btn">x</button>'+'<button class="edit-btn">Edit</button>'
-ul.appendChild(lis)
-})
-ul.addEventListener("click",function(event){
-if(event.target.classList.contains("delete-btn"))
-  {
-    const deleteFruit=event.target.parentElement;
-    ul.removeChild(deleteFruit);
+function handleFormSubmit(event)
+{
+  event.preventDefault();
+const name=event.target.username.value;
+const email=event.target.email.value;
+const phone=event.target.phone.value;
+  localStorage.setItem("Username",name);
+  localStorage.setItem("Email",email)
+  localStorage.setItem("Phone",phone);
+}
+const form=document.querySelector("form");
+form.addEventListener("submit", handleFormSubmit)
+module.exports=handleFormSubmit
