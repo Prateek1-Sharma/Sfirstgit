@@ -1,10 +1,16 @@
-const mainHead=document.getElementById("main-heading");
-mainHead.textContent='Fruit World';
-mainHead.style.color='orange';
-const header=document.getElementById("header");
-header.style.borderBottom="2px solid orange";
-header.style.background="green";
-const basketheading=document.getElementById("basket-heading");
-basketheading.style.color='green';
-const thanks=document.getElementById("thanks");
-thanks.innerHTML="<p>Please visit us again</p>";
+function handleFormSubmit(event)
+{
+event.preventDefault();
+const name=event.target.username.value;
+const email=event.target.email.value;
+const phone=event.target.phone.value;
+const userDetails= {
+  username:name,
+  email:email,
+  phone:phone
+}
+ const userDetail = JSON.stringify(userDetails);
+  localStorage.setItem("User Details",userDetail)
+}
+
+module.exports=handleFormSubmit;
